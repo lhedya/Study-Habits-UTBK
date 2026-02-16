@@ -1,0 +1,122 @@
+{
+  "Strategic Achiever": {
+    "emoji": "🎯",
+    "title": "Strategic Achiever",
+    "description": "Kamu memiliki performa tinggi di semua dimensi! Konsisten, terorganisir, dan siap menghadapi UTBK.",
+    "strengths": [
+      "Manajemen waktu excellent",
+      "Konsistensi tinggi",
+      "Mental strong"
+    ],
+    "focus_areas": [
+      "Maintain momentum",
+      "Challenge dengan soal HOTS",
+      "Share knowledge dengan teman"
+    ]
+  },
+  "Diligent Scholar": {
+    "emoji": "📚",
+    "title": "Diligent Scholar",
+    "description": "Kamu sangat rajin dan konsisten! Terus pertahankan kedisiplinan belajarmu.",
+    "strengths": [
+      "Konsistensi luar biasa",
+      "Disiplin tinggi",
+      "Tekun"
+    ],
+    "focus_areas": [
+      "Tingkatkan efisiensi belajar",
+      "Time management",
+      "Variasi metode belajar"
+    ]
+  },
+  "Fast Learner": {
+    "emoji": "🚀",
+    "title": "Fast Learner",
+    "description": "Kamu cepat menangkap materi baru! Manfaatkan kemampuan ini dengan maksimal.",
+    "strengths": [
+      "Quick learner",
+      "Adaptif",
+      "Pemahaman cepat"
+    ],
+    "focus_areas": [
+      "Konsistensi belajar",
+      "Depth over breadth",
+      "Teaching others"
+    ]
+  },
+  "Resilient Fighter": {
+    "emoji": "💪",
+    "title": "Resilient Fighter",
+    "description": "Mentalmu kuat! Kamu tidak mudah menyerah dan selalu bangkit dari kegagalan.",
+    "strengths": [
+      "Mental tangguh",
+      "Pantang menyerah",
+      "Resilient"
+    ],
+    "focus_areas": [
+      "Improve study techniques",
+      "Build strong foundation",
+      "Consistent practice"
+    ]
+  },
+  "Growing Learner": {
+    "emoji": "🌱",
+    "title": "Growing Learner",
+    "description": "Kamu dalam tahap perkembangan yang baik! Terus tingkatkan sedikit demi sedikit.",
+    "strengths": [
+      "Growth mindset",
+      "Open to learn",
+      "Potential tinggi"
+    ],
+    "focus_areas": [
+      "Build strong foundation",
+      "Increase consistency",
+      "Find your rhythm"
+    ]
+  },
+  "Inconsistent Talent": {
+    "emoji": "⚡",
+    "title": "Inconsistent Talent",
+    "description": "Kamu punya kemampuan tinggi tapi perlu lebih konsisten! Fokus pada habit building.",
+    "strengths": [
+      "High potential",
+      "Quick grasp",
+      "Talented"
+    ],
+    "focus_areas": [
+      "Build consistency",
+      "Habit tracking",
+      "Accountability system"
+    ]
+  },
+  "Methodical Planner": {
+    "emoji": "🎓",
+    "title": "Methodical Planner",
+    "description": "Kamu excellent dalam planning dan organizing! Gunakan kekuatan ini untuk strategi jangka panjang.",
+    "strengths": [
+      "Planning expert",
+      "Well-organized",
+      "Strategic"
+    ],
+    "focus_areas": [
+      "Execution consistency",
+      "Flexibility",
+      "Balance planning & doing"
+    ]
+  },
+  "Needs Support": {
+    "emoji": "🆘",
+    "title": "Needs Support",
+    "description": "Kamu butuh dukungan ekstra untuk persiapan UTBK. Jangan ragu untuk minta bantuan!",
+    "strengths": [
+      "Aware of gaps",
+      "Ready to improve",
+      "Humble"
+    ],
+    "focus_areas": [
+      "Seek mentor/tutor",
+      "Start from basics",
+      "Small wins daily"
+    ]
+  }
+}
