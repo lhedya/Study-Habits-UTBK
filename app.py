@@ -45,7 +45,7 @@ st.markdown("""
     .sub-header {
         font-size: 1.5rem;
         text-align: center;
-        color: #666;
+        color: #888;
         margin-bottom: 2rem;
     }
     .learner-card {
@@ -703,7 +703,7 @@ def profile_page():
                 placeholder="Masukkan nama lengkap"
             )
             
-            kelas_options = [10, 11, 12]
+            kelas_options = [10, 11, 12, 'Alumni']
             kelas_default = st.session_state.profile_data.get('kelas', 12)
             kelas = st.selectbox(
                 "Kelas*", 
@@ -740,9 +740,9 @@ def profile_page():
             
             target_skor = st.number_input(
                 "Target Skor Total UTBK*", 
-                min_value=500, 
-                max_value=4000, 
-                value=st.session_state.profile_data.get('target_skor', 2800),
+                min_value=100, 
+                max_value=1000, 
+                value=st.session_state.profile_data.get('target_skor', 1000),
                 step=50,
                 help="Total skor target dari semua subtes (TPS + Literasi Indo + Literasi Inggris + Penalaran Mat)"
             )
@@ -759,46 +759,75 @@ def profile_page():
         st.caption("*Isi dengan skor terakhir yang kamu dapat. Jika belum pernah tryout, isi dengan perkiraan kemampuanmu saat ini.*")
         
         col3, col4, col5, col6 = st.columns(4)
+        col7, col8, col9 = st.columns(3)
+
         
         with col3:
-            skor_tps = st.number_input(
-                "TPS", 
-                min_value=200, 
+            skor_PU = st.number_input(
+                "Penalaran Umum", 
+                min_value=0, 
                 max_value=1000, 
-                value=st.session_state.profile_data.get('skor_tps', 600),
+                value=st.session_state.profile_data.get('skor_PU', 100),
                 step=10,
                 help="Tes Potensi Skolastik"
             )
         
         with col4:
-            skor_literasi_indo = st.number_input(
-                "Literasi Indonesia", 
-                min_value=200, 
-                max_value=1000,
-                value=st.session_state.profile_data.get('skor_literasi_indo', 600),
-                step=10
+            skor_PPU = st.number_input(
+                "Pengetahuan dan Pemahaman Umum", 
+                min_value=0, 
+                max_value=1000, 
+                value=st.session_state.profile_data.get('skor_PPU', 100),
+                step=10,
             )
         
         with col5:
-            skor_literasi_inggris = st.number_input(
-                "Literasi Inggris", 
-                min_value=200, 
+            skor_PBM = st.number_input(
+                "Pemahaman Bacaan dan Menulis", 
+                min_value=0, 
+                max_value=1000, 
+                value=st.session_state.profile_data.get('skor_PBM', 100),
+                step=10,
+            )
+
+        with col6:
+            skor_PK = st.number_input(
+                "Pengetahuan Kuantitatif", 
+                min_value=0, 
+                max_value=1000, 
+                value=st.session_state.profile_data.get('skor_PK', 100),
+                step=10,
+            )
+
+        with col7:
+            skor_literasi_indo = st.number_input(
+                "Literasi Indonesia", 
+                min_value=0, 
                 max_value=1000,
-                value=st.session_state.profile_data.get('skor_literasi_inggris', 600),
+                value=st.session_state.profile_data.get('skor_literasi_indo', 100),
                 step=10
             )
         
-        with col6:
+        with col8:
+            skor_literasi_inggris = st.number_input(
+                "Literasi Inggris", 
+                min_value=0, 
+                max_value=1000,
+                value=st.session_state.profile_data.get('skor_literasi_inggris', 100),
+                step=10
+            )
+        
+        with col9:
             skor_penalaran_mat = st.number_input(
                 "Penalaran Matematika", 
-                min_value=200, 
+                min_value=0, 
                 max_value=1000,
-                value=st.session_state.profile_data.get('skor_penalaran_mat', 600),
+                value=st.session_state.profile_data.get('skor_penalaran_mat', 100),
                 step=10
             )
         
         # Quick summary
-        total_current = skor_tps + skor_literasi_indo + skor_literasi_inggris + skor_penalaran_mat
+        total_current = skor_PU +  skor_PPU + skor_PBM + skor_PK + skor_literasi_indo + skor_literasi_inggris + skor_penalaran_mat
         gap_amount = target_skor - total_current
         st.info(f"📊 **Total Skor Saat Ini:** {total_current} | **Target:** {target_skor} | **Gap:** {gap_amount} poin")
         
@@ -818,7 +847,10 @@ def profile_page():
                     'jurusan': jurusan,
                     'kampus': kampus,
                     'target_skor': target_skor,
-                    'skor_tps': skor_tps,
+                    'skor_PU': skor_PU,
+                    'skor_PPU': skor_PPU,
+                    'skor_PBM': skor_PBM,
+                    'skor_PK': skor_PK,
                     'skor_literasi_indo': skor_literasi_indo,
                     'skor_literasi_inggris': skor_literasi_inggris,
                     'skor_penalaran_mat': skor_penalaran_mat,
@@ -972,7 +1004,10 @@ def results_page():
             
             # Gap analysis
             current_scores = {
-                'TPS': st.session_state.profile_data['skor_tps'],
+                'PU': st.session_state.profile_data['skor_PU'],
+                'PPU': st.session_state.profile_data['skor_PPU'],
+                'PBM': st.session_state.profile_data['skor_PBM'],
+                'PK': st.session_state.profile_data['skor_PK'],
                 'Literasi_Indo': st.session_state.profile_data['skor_literasi_indo'],
                 'Literasi_Inggris': st.session_state.profile_data['skor_literasi_inggris'],
                 'Penalaran_Mat': st.session_state.profile_data['skor_penalaran_mat']
@@ -983,7 +1018,7 @@ def results_page():
             recommendations = generate_study_plan(learner_type, dimension_scores, gap_analysis)
             
             # Generate milestones
-            milestones = generate_milestones(gap_analysis, months_to_utbk=4)
+            milestones = generate_milestones(gap_analysis, months_to_utbk=7)
             
         except Exception as e:
             st.error(f"❌ Terjadi kesalahan saat memproses data: {str(e)}")
@@ -1096,7 +1131,7 @@ def results_page():
         
         subjects = [s.replace('_', ' ') for s in current_scores.keys()]
         current = list(current_scores.values())
-        target_per_subtes = [gap_analysis['total_target'] / 4] * 4
+        target_per_subtes = [gap_analysis['total_target'] / 7] * 7
         
         fig.add_trace(go.Bar(
             name='Skor Saat Ini', 
@@ -1149,17 +1184,34 @@ def results_page():
         col_pie, col_table = st.columns([1, 1])
         
         with col_pie:
+            labels = list(recommendations['time_allocation'].keys())
+            values = list(recommendations['time_allocation'].values())
+
+            colors = [
+                '#FF4B4B',
+                '#667eea',
+                '#764ba2',
+                '#FFA500',
+                '#00C9A7',
+                '#FFC75F',
+                '#2C73D2'
+            ]
+
             fig = go.Figure(data=[go.Pie(
-                labels=list(recommendations['time_allocation'].keys()),
-                values=list(recommendations['time_allocation'].values()),
-                hole=.4,
-                marker=dict(colors=['#FF4B4B', '#667eea', '#764ba2', '#FFA500'])
+                labels=labels,
+                values=values,
+                hole=0.5,
+                marker=dict(colors=colors[:len(labels)]),
+                textinfo='label+percent'
             )])
+
             fig.update_layout(
-                title='Distribusi Waktu Belajar (%)',
-                height=350
+                title='Distribusi Waktu Belajar 7 Subtest UTBK',
+                height=400
             )
+
             st.plotly_chart(fig, use_container_width=True)
+
         
         with col_table:
             st.markdown("#### 📊 Detail Alokasi")
@@ -1225,3 +1277,4 @@ def results_page():
 
 if __name__ == "__main__":
     main()
+
